@@ -7,8 +7,13 @@ class launcher{
             length: 10
         }
         this.pointB = pointB;
+        this.bodyA = bodyA;
         this.launcher = Constraint.create(options);
         World.add(world, this.launcher);
+    }
+
+    attach(body) {
+        this.launcher.bodyA=body;
     }
 
     fly() {
@@ -16,9 +21,11 @@ class launcher{
     }
 
     display(){
-        var pointA = this.launcher.bodyA.position;
+        if (this.launcher.bodyA) {
+        var pointA = this.bodyA.position;
         var pointB = this.pointB;
         strokeWeight(4);
         line(pointA.x, pointA.y, pointB.x, pointB.y);
+        }
     }
 }

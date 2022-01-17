@@ -10,7 +10,7 @@ var treeObj, stoneObj,groundObject;
 var mango1,mango2,mango3,mango4,mango5,mango6,mango7,mango8,mango9,mango10,mango11,mango12;
 var world,boy;
 
-var launcherObject
+var launcherObject;
 var launchForce = 100;
 
 
@@ -40,7 +40,7 @@ function setup() {
 
 	treeObj=new tree(1050,580);
 	groundObject=new ground(width/2,600,width,20);
-  //crea aquí el launcherObject 
+  launcherObject=new launcher(stoneObj.body,{x:235,y:420}); 
 
 
 	Engine.run(engine);
@@ -72,8 +72,6 @@ function draw() {
   stoneObj.display();
   groundObject.display();
   launcherObject.display();
-  
-  launcherObject=new launcherObject(stoneObj.body,{x:235,y:420});
     
   detectollision(stoneObj,mango1);
   detectollision(stoneObj,mango2);
@@ -94,7 +92,7 @@ function mouseDragged() {
 }
 
 function mouseReleased() {
-  launcher.fly();
+  launcherObject.fly();
 }
 
 function keyPressed(){
